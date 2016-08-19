@@ -18,6 +18,11 @@ function getResult() {
   <input type="submit" value="Go"><br>
 </form>
 
+<h2>Index of all my buildings (GET):</h2>
+<form action="allbuildings.php" method="post">
+  <input type="submit" value="Go"><br>
+</form>
+
 <h2>Create a building (POST):</h2>
 <form action="create.php" method="post">
   Building Name: <input type="text" name="building_name" value="<?=returnFormDataIfExists('building_name');?>"><br>
