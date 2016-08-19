@@ -8,7 +8,7 @@ $building_id = $_POST['building_id'];
 $settings = Settings::getInstance();
 
 if(empty($building_id)) {
-  respond("index.php?result=Nothing to do, mising building id");
+  respondWithMessage('Nothing to do, mising building id');
 }
 
 try {
@@ -18,10 +18,7 @@ try {
     ]
   ]);
 } catch (\GuzzleHttp\Exception\ClientException $e) {
-  $response_message = 'Caught Exception: ' . $e->getResponse()->getStatusCode();
-  respond("index.php?result=" . $response_message);
+  exceptionHasBeenCaught($e);
 }
 
-$response_message = 'Status code: ' . $response->getStatusCode() . '; Body: ' . (string)$response->getBody();
-
-respond("index.php?result=" . $response_message);
+respondWithData($response);
