@@ -1,16 +1,19 @@
 <?php
 require 'vendor/autoload.php';
 require 'guzzleclient.php';
+require 'settings.php';
+require 'common.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 $organization_token = $_POST['organization_token'];
+$settings = Settings::getInstance();
+$response = null;
 
 if(empty($email) || empty($password) || empty($organization_token)) {
-  header("Location: index.php?result=Nothing to do, mising username or password");
+  respond("index.php?result=Nothing to do, mising username, password or organization token");
 }
 
-$response = null;
 try {
   $response = $guzzleclient->request('POST', 'users/authenticate', [
     'json' => [
@@ -21,12 +24,11 @@ try {
   ]);
 } catch (\GuzzleHttp\Exception\ClientException $e) {
   $response_message = 'Caught Exception: ' . $e->getResponse()->getStatusCode();
-  header("Location: index.php?result=" . $response_message);
+  respond("index.php?result=" . $response_message);
 }
 
 $response_message = 'Status code: ' . $response->getStatusCode() . '; Body: ' . (string)$response->getBody();
 $response_data = json_decode($response->getBody(), true);
+$settings->updateSetting('authentication_token', $response_data['token']);
 
-file_put_contents('settings', json_encode(['authentication_token' => $response_data['token']]));
-
-header("Location: index.php?result=" . $response_message);
+respond("index.php?result=" . $response_message);
