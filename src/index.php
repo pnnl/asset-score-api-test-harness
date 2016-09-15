@@ -1,6 +1,6 @@
 <?php
-require 'vendor/autoload.php';
-require 'common.php';
+require_once 'vendor/autoload.php';
+require_once 'common.php';
 
 function getResult() {
   if(isset($_GET['result'])) {
@@ -9,6 +9,7 @@ function getResult() {
   return 'No results to display';
 }
 ?>
+<a href="settings_form.php">Settings</a>
 
 <h2>Authenticate and get a token (POST):</h2>
 <form action="authenticate.php" method="post">

@@ -1,4 +1,7 @@
 <?php
-require 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
+require_once 'settings.php';
 
-$guzzleclient = new GuzzleHttp\Client(['base_uri' => 'http://localhost:3000/api/v2/']);
+$settings = Settings::getInstance();
+
+$guzzleclient = new GuzzleHttp\Client(['base_uri' => $settings->getSetting('api_url') . '/api/v2/']);

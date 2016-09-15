@@ -1,8 +1,8 @@
 <?php
-require 'vendor/autoload.php';
-require 'guzzleclient.php';
-require 'settings.php';
-require 'common.php';
+require_once 'vendor/autoload.php';
+require_once 'guzzleclient.php';
+require_once 'settings.php';
+require_once 'common.php';
 
 $building_id = $_POST['building_id'];
 $field_to_update = $_POST['field_to_update'];

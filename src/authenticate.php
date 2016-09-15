@@ -1,8 +1,8 @@
 <?php
-require 'vendor/autoload.php';
-require 'guzzleclient.php';
-require 'settings.php';
-require 'common.php';
+require_once 'vendor/autoload.php';
+require_once 'guzzleclient.php';
+require_once 'settings.php';
+require_once 'common.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];
