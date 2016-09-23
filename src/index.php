@@ -78,5 +78,11 @@ function getResult() {
   <input type="submit" value="Go">
 </form>
 
+<h2>Set Building Edit Mode (GET):</h2>
+<form action="edit_mode.php" method="post">
+  Building ID: <input type="text" name="building_id" value="<?=returnFormDataIfExists('building_id');?>">
+  <input type="submit" value="Go">
+</form>
+
 <h2 style="color:green;">Result box:</h2>
 <textarea cols=60 rows=10 style="font-size:14pt;"><?=getResult();?></textarea>
