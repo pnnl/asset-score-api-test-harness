@@ -4,7 +4,7 @@ require_once 'common.php';
 
 function getResult() {
   if(isset($_GET['result'])) {
-    return $_GET['result'];
+    return htmlspecialchars($_GET['result'], ENT_QUOTES, 'UTF-8');
   }
   return 'No results to display';
 }
@@ -14,7 +14,7 @@ function getResult() {
 <h2>Authenticate and get a token (POST):</h2>
 <form action="authenticate.php" method="post">
   Email: <input type="text" name="email" value="<?=returnFormDataIfExists('email');?>"><br>
-  Password: <input type="password" name="password" value="<?=returnFormDataIfExists('password');?>"><br>
+  Password: <input type="password" name="password" value="<?=returnFormDataIfExists('password');?>" autocomplete="off"><br>
   Organization Token: <input type="text" name="organization_token" value="<?=returnFormDataIfExists('organization_token');?>"><br>
   <input type="submit" value="Go"><br>
 </form>
@@ -84,5 +84,5 @@ function getResult() {
   <input type="submit" value="Go">
 </form>
 
-<h2 style="color:green;">Result box:</h2>
-<textarea cols=60 rows=10 style="font-size:14pt;"><?=getResult();?></textarea>
+<h2 style="color:green;">Results:</h2>
+<div style="font-size:14pt;"><?=getResult();?></div>

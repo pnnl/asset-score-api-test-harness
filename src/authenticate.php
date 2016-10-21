@@ -4,9 +4,9 @@ require_once 'guzzleclient.php';
 require_once 'settings.php';
 require_once 'common.php';
 
-$email = $_POST['email'];
-$password = $_POST['password'];
-$organization_token = $_POST['organization_token'];
+$email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
+$password = htmlspecialchars($_POST['password'], ENT_QUOTES, 'UTF-8');
+$organization_token = htmlspecialchars($_POST['organization_token'], ENT_QUOTES, 'UTF-8');
 $settings = Settings::getInstance();
 $response = null;
 

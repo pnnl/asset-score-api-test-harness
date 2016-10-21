@@ -4,17 +4,17 @@ require_once 'guzzleclient.php';
 require_once 'settings.php';
 require_once 'common.php';
 
-$building_name = $_POST['building_name'];
-$year_completed = $_POST['year_completed'];
-$floor_area = $_POST['floor_area'];
-$street = $_POST['street'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$postal_code = $_POST['postal_code'];
-$assessment_type = $_POST['assessment_type'];
-$use_type = $_POST['use_type'];
-$orientation = $_POST['orientation'];
-$number_floors = $_POST['number_floors'];
+$building_name = htmlspecialchars($_POST['building_name'], ENT_QUOTES, 'UTF-8');
+$year_completed = htmlspecialchars($_POST['year_completed'], ENT_QUOTES, 'UTF-8');
+$floor_area = htmlspecialchars($_POST['floor_area'], ENT_QUOTES, 'UTF-8');
+$street = htmlspecialchars($_POST['street'], ENT_QUOTES, 'UTF-8');
+$city = htmlspecialchars($_POST['city'], ENT_QUOTES, 'UTF-8');
+$state = htmlspecialchars($_POST['state'], ENT_QUOTES, 'UTF-8');
+$postal_code = htmlspecialchars($_POST['postal_code'], ENT_QUOTES, 'UTF-8');
+$assessment_type = htmlspecialchars($_POST['assessment_type'], ENT_QUOTES, 'UTF-8');
+$use_type = htmlspecialchars($_POST['use_type'], ENT_QUOTES, 'UTF-8');
+$orientation = htmlspecialchars($_POST['orientation'], ENT_QUOTES, 'UTF-8');
+$number_floors = htmlspecialchars($_POST['number_floors'], ENT_QUOTES, 'UTF-8');
 $settings = Settings::getInstance();
 
 if(
