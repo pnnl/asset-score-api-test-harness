@@ -13,7 +13,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
    php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
    php -r "unlink('composer-setup.php');"
 
-RUN echo "expose_php = Off;" >> /usr/local/etc/php/conf.d/php.ini
+RUN echo "expose_php = Off;" > /usr/local/etc/php/conf.d/php.ini
 
 RUN cd /var/www/html && \
     composer install
