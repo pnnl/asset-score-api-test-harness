@@ -4,7 +4,7 @@ require_once 'common.php';
 
 function getResult() {
   if(isset($_GET['result'])) {
-    return htmlspecialchars($_GET['result'], ENT_QUOTES, 'UTF-8');
+    return htmlentities($_GET['result'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
   }
   return 'No results to display';
 }

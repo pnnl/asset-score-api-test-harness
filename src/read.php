@@ -4,7 +4,7 @@ require_once 'guzzleclient.php';
 require_once 'common.php';
 require_once 'settings.php';
 
-$building_id = htmlspecialchars($_POST['building_id'], ENT_QUOTES, 'UTF-8');
+$building_id = htmlentities($_POST['building_id'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
 $settings = Settings::getInstance();
 
 if(empty($building_id)) {

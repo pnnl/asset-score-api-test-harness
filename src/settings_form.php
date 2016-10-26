@@ -6,7 +6,7 @@ require_once 'settings.php';
 $settings = Settings::getInstance();
 
 if(!empty($_POST['api_url'])) {
-  $api_url = htmlspecialchars($_POST['api_url'], ENT_QUOTES, 'UTF-8');
+  $api_url = htmlentities($_POST['api_url'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
   $settings->updateSetting('api_url', $api_url);
 }
 ?>
