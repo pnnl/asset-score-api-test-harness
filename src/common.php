@@ -5,7 +5,7 @@ function getPOSTData() {
   $postdata = '';
 
   foreach($_POST as $key => $value) {
-    $postdata .= '&' . $key . '=' . $value;
+    $postdata .= '&' . htmlentities($key, ENT_QUOTES | ENT_HTML5, 'UTF-8') . '=' . htmlentities($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
   }
 
   return $postdata;
@@ -32,7 +32,7 @@ function respondWithMessage($message) {
 
 function returnFormDataIfExists($formkey) {
   if(isset($_GET[$formkey])) {
-    return $_GET[$formkey];
+    return htmlentities($_GET[$formkey], ENT_QUOTES | ENT_HTML5, 'UTF-8');
   }
 
   return '';
