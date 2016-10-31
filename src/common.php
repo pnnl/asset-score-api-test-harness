@@ -5,7 +5,7 @@ function getPOSTData() {
   $postdata = '';
 
   foreach($_POST as $key => $value) {
-    $postdata .= '&' . htmlentities($key, ENT_QUOTES | ENT_HTML5, 'UTF-8') . '=' . htmlentities($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $postdata .= '&' . htmlspecialchars($key, ENT_QUOTES, 'UTF-8') . '=' . htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
   }
 
   return $postdata;

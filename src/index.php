@@ -49,6 +49,7 @@ function getResult() {
 <h2>Update a building (PUT):</h2>
 <form action="update.php" method="post">
   Building ID: <input type="text" name="building_id" value="<?=returnFormDataIfExists('building_id');?>">
+  Block ID: <input type="text" name="block_id" value="<?=returnFormDataIfExists('block_id');?>">
   Field: <input type="text" name="field_to_update" value="<?=returnFormDataIfExists('field_to_update');?>">
   Value: <input type="text" name="value" value="<?=returnFormDataIfExists('value');?>">
   <input type="submit" value="Go">
