@@ -40,6 +40,7 @@ function returnFormDataIfExists($formkey) {
 
 function exceptionHasBeenCaught($e) {
   $response_message = 'Caught Exception: ' . $e->getResponse()->getStatusCode() . '; ' . $e->getResponse()->getBody();
+
   respondWithMessage($response_message);
   exit;
 }
