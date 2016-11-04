@@ -13,7 +13,7 @@ function getPOSTData() {
 
 function respondWithData($response) {
   $response_message = 'Status code: ' . $response->getStatusCode() . '; Body: ' . (string)$response->getBody();
-  $url = "index.php?result=" . $response_message;
+  $url = "index.php?result=" . urlencode($response_message);
 
   $postdata = getPOSTData();
 
@@ -22,7 +22,7 @@ function respondWithData($response) {
 }
 
 function respondWithMessage($message) {
-  $url = "index.php?result=" . $message;
+  $url = "index.php?result=" . urlencode($message);
 
   $postdata = getPOSTData();
 

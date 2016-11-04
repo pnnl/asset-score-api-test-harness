@@ -4,12 +4,23 @@ require_once 'common.php';
 
 function getResult() {
   if(isset($_GET['result'])) {
-    return htmlentities($_GET['result'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    return htmlentities(urldecode($_GET['result']), ENT_QUOTES | ENT_HTML5, 'UTF-8');
   }
   return 'No results to display';
 }
 ?>
 <a href="settings_form.php">Settings</a>
+
+<h2>Create a user (POST):</h2>
+<form action="create_user.php" method="post">
+  First Name: <input type="text" name="first_name" value="<?=returnFormDataIfExists('first_name');?>"><br>
+  Last Name: <input type="text" name="last_name" value="<?=returnFormDataIfExists('last_name');?>"><br>
+  Email: <input type="text" name="email" value="<?=returnFormDataIfExists('email');?>"><br>
+  Password: <input type="password" name="password" value="<?=returnFormDataIfExists('password');?>" autocomplete="off"><br>
+  Password Confirmation: <input type="password" name="password_confirmation" value="<?=returnFormDataIfExists('password_confirmation');?>" autocomplete="off"><br>
+  Organization Token: <input type="text" name="organization_token" value="<?=returnFormDataIfExists('organization_token');?>"><br>
+  <input type="submit" value="Go"><br>
+</form>
 
 <h2>Authenticate and get a token (POST):</h2>
 <form action="authenticate.php" method="post">
@@ -17,6 +28,14 @@ function getResult() {
   Password: <input type="password" name="password" value="<?=returnFormDataIfExists('password');?>" autocomplete="off"><br>
   Organization Token: <input type="text" name="organization_token" value="<?=returnFormDataIfExists('organization_token');?>"><br>
   <input type="submit" value="Go"><br>
+</form>
+
+<h2>Update a user (PUT):</h2>
+<form action="update_user.php" method="post">
+  User ID: <input type="text" name="user_id" value="<?=returnFormDataIfExists('user_id');?>">
+  Field: <input type="text" name="field_to_update" value="<?=returnFormDataIfExists('field_to_update');?>">
+  Value: <input type="text" name="value" value="<?=returnFormDataIfExists('value');?>">
+  <input type="submit" value="Go">
 </form>
 
 <h2>Index of all my buildings (GET):</h2>
