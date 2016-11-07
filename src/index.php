@@ -86,6 +86,20 @@ function getResult() {
   <input type="submit" value="Go">
 </form>
 
+<h2>Verify a building (PUT):</h2>
+<form action="verify.php" method="post">
+  Building ID: <input type="text" name="building_id" value="<?=returnFormDataIfExists('building_id');?>">
+  Block ID: <input type="text" name="block_id" value="<?=returnFormDataIfExists('block_id');?>">
+  <input type="submit" value="Go">
+</form>
+
+<h2>Revert a building (PUT):</h2>
+<form action="revert.php" method="post">
+  Building ID: <input type="text" name="building_id" value="<?=returnFormDataIfExists('building_id');?>">
+  Block ID: <input type="text" name="block_id" value="<?=returnFormDataIfExists('block_id');?>">
+  <input type="submit" value="Go">
+</form>
+
 <h2>Simulate a building (GET):</h2>
 <form action="simulate.php" method="post">
   Building ID: <input type="text" name="building_id" value="<?=returnFormDataIfExists('building_id');?>">
