@@ -17,6 +17,9 @@ This code can either be used as sample PHP code to call the API, or to run this 
 test harness, clone and build the Docker container. Running the provided container will 
 serve up a fully functioning test harness website.
 
+# License
+This software has no license.  It is free for all to use however they choose.
+
 # Running the test harness as a container
 #### Requirements
 - Docker (version 1.12.2 works, others may also)
